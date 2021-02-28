@@ -19,8 +19,10 @@ public class StringInputValidator {
         HashSet<Character> uniqueCharacters = new HashSet<>();
         boolean hasDigits = false;
 
-        for(Character c: input.toCharArray()) {
-            if (Character.isDigit(c)) {
+        for(int i = 0, length = input.length(); i < length; i++) {
+            char c = input.charAt(i);
+
+            if (isDigit(c)) {
                 hasDigits = true;
             }
 
@@ -28,5 +30,9 @@ public class StringInputValidator {
         }
 
         return hasDigits && uniqueCharacters.size() == input.length();
+    }
+
+    private static boolean isDigit(char c) {
+        return Character.isDigit(c); // or '0' <= c && c <= '9';
     }
 }
