@@ -17,8 +17,9 @@ public class StringInputValidator {
             return false;
         }
 
-        int initialCapacity = (int) (input.length() / 0.75 + 1);
-        HashSet<Character> uniqueCharacters = new HashSet<>(initialCapacity);
+        float loadFactor = 0.75f;
+        int initialCapacity = (int) (input.length() / loadFactor + 1);
+        HashSet<Character> uniqueCharacters = new HashSet<>(initialCapacity, loadFactor);
         boolean hasDigits = false;
 
         for (int i = 0, length = input.length(); i < length; i++) {
