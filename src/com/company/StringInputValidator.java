@@ -8,6 +8,7 @@ public class StringInputValidator {
      * - all characters are unique.
      * - at least 1 digit.
      * - at least 8 symbols.
+     *
      * @param input a validating string
      * @return is valid string
      */
@@ -16,10 +17,11 @@ public class StringInputValidator {
             return false;
         }
 
-        HashSet<Character> uniqueCharacters = new HashSet<>();
+        int initialCapacity = (int) (input.length() / 0.75 + 1);
+        HashSet<Character> uniqueCharacters = new HashSet<>(initialCapacity);
         boolean hasDigits = false;
 
-        for(int i = 0, length = input.length(); i < length; i++) {
+        for (int i = 0, length = input.length(); i < length; i++) {
             char c = input.charAt(i);
 
             if (isDigit(c)) {
