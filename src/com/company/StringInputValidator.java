@@ -25,7 +25,7 @@ public class StringInputValidator {
         for (int i = 0, length = input.length(); i < length; i++) {
             char c = input.charAt(i);
 
-            if (isDigit(c)) {
+            if (!hasDigits && isDigit(c)) {
                 hasDigits = true;
             }
 
